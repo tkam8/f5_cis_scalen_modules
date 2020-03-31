@@ -33,7 +33,15 @@ gke_name=${gcp_gke2_cluster_name}
 [gke3_systems:vars]
 gke_name=${gcp_gke3_cluster_name}
 
-[F5_systems:vars]
+[F51_systems:vars]
+ansible_user=admin
+ansible_ssh_private_key_file=/drone/src/gcp/gcp_ssh_key
+
+[F52_systems:vars]
+ansible_user=admin
+ansible_ssh_private_key_file=/drone/src/gcp/gcp_ssh_key
+
+[F53_systems:vars]
 ansible_user=admin
 ansible_ssh_private_key_file=/drone/src/gcp/gcp_ssh_key
 
