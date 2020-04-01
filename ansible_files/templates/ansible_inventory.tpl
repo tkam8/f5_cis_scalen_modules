@@ -1,37 +1,20 @@
 
-[gke1_systems]
+#GKE Group with associated host vars
+[gke_systems]
 # Must be in the form of <gke public IP> gke_url=<https URL of the endpoint>
-${gcp_gke1_endpoint}  gke1_url=https://${gcp_gke1_endpoint}
+${gcp_gke1_endpoint}  gke1_url=https://${gcp_gke1_endpoint}  gke_name=${gcp_gke1_cluster_name}
+${gcp_gke2_endpoint}  gke2_url=https://${gcp_gke2_endpoint}  gke_name=${gcp_gke2_cluster_name}
+${gcp_gke3_endpoint}  gke3_url=https://${gcp_gke3_endpoint}  gke_name=${gcp_gke3_cluster_name}
 
-[gke2_systems]
-# Must be in the form of <gke public IP> gke_url=<https URL of the endpoint>
-${gcp_gke2_endpoint}  gke2_url=https://${gcp_gke2_endpoint}
 
-[gke3_systems]
-# Must be in the form of <gke public IP> gke_url=<https URL of the endpoint>
-${gcp_gke3_endpoint}  gke3_url=https://${gcp_gke3_endpoint}
-
-[F51_systems]
+#F5 BIG-IP Group with associated host vars
+[F5_systems]
 # Must be in the form of <public IP> vs_ip=<private ip of the F5>
-${gcp_F51_public_ip} vs_ip=${gcp_F51_private_ip}
-
-[F52_systems]
-# Must be in the form of <public IP> vs_ip=<private ip of the F5>
-${gcp_F52_public_ip} vs_ip=${gcp_F52_private_ip}
-
-[F53_systems]
-# Must be in the form of <public IP> vs_ip=<private ip of the F5>
-${gcp_F53_public_ip} vs_ip=${gcp_F53_private_ip}
+${gcp_F51_public_ip} vs_ip=${gcp_F51_private_ip}  
+${gcp_F52_public_ip} vs_ip=${gcp_F52_private_ip}  
+${gcp_F53_public_ip} vs_ip=${gcp_F53_private_ip} 
 
 
-[gke1_systems:vars]
-gke_name=${gcp_gke1_cluster_name}
-
-[gke2_systems:vars]
-gke_name=${gcp_gke2_cluster_name}
-
-[gke3_systems:vars]
-gke_name=${gcp_gke3_cluster_name}
 
 
 [all:vars]
@@ -39,3 +22,6 @@ gke_name=${gcp_gke3_cluster_name}
 ep_list1=default('undefined')
 ep_list2=default('undefined')
 ep_list3=default('undefined')
+
+
+# https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
