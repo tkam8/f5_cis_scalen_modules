@@ -15,11 +15,6 @@ ${gcp_F52_public_ip} vs_ip=${gcp_F52_private_ip}
 ${gcp_F53_public_ip} vs_ip=${gcp_F53_private_ip} 
 
 
-#F5 BIG-IP Group vars, for some reason not picking up in group_vars folder...
-[F5_systems:vars]
-ansible_user: admin
-ansible_ssh_private_key_file: /drone/src/gcp/gcp_ssh_key
-
 [all:vars]
 # ep_list is used for defining the upstreams in the NGINX configuration. It can be given a default value and can be overriden later using set_fact in a role i.e. NGINX endpoints creation role
 ep_list1=default('undefined')
