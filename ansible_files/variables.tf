@@ -29,11 +29,6 @@ variable "app_tag_value" {
 }
 
 # BIG-IP Variables
-variable "bigip_id" {
-  description = "The unique ID of the BIG-IP, e.g. 1 or 2"
-  type        = string
-}
-
 variable "bigip1_public_ip" {
   description = "The public IP the first F5 VM instance."
   type        = string
