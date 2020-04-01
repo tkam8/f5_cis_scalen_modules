@@ -33,9 +33,24 @@ resource "local_file" "ansible_inventory_file" {
   filename = "${var.terragrunt_path}/../../ansible/playbooks/inventory/hosts"
 }
 
+#Putting F5 inventory specific vars in a separate file. Add for more BIG-IP systems
 resource "local_file" "ansible_f5_vars_file" {
   content  = templatefile("./templates/ansible_f5_vars.tpl", {
     gcp_tag_value         = var.app_tag_value
   })
-  filename = "${var.terragrunt_path}/../../ansible/playbooks/group_vars/F5_systems/vars"
+  filename = "${var.terragrunt_path}/../../ansible/playbooks/group_vars/F51_systems/vars"
+}
+
+resource "local_file" "ansible_f5_vars_file" {
+  content  = templatefile("./templates/ansible_f5_vars.tpl", {
+    gcp_tag_value         = var.app_tag_value
+  })
+  filename = "${var.terragrunt_path}/../../ansible/playbooks/group_vars/F52_systems/vars"
+}
+
+resource "local_file" "ansible_f5_vars_file" {
+  content  = templatefile("./templates/ansible_f5_vars.tpl", {
+    gcp_tag_value         = var.app_tag_value
+  })
+  filename = "${var.terragrunt_path}/../../ansible/playbooks/group_vars/F53_systems/vars"
 }
