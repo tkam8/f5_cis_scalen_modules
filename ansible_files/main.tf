@@ -38,5 +38,5 @@ resource "local_file" "ansible_f5_vars_file" {
   content  = templatefile("./templates/ansible_f5_vars.tpl", {
     gcp_tag_value         = var.app_tag_value
   })
-  filename = "${var.terragrunt_path}/../../ansible/playbooks/group_vars/F5_systems/vars"
+  filename = "${var.terragrunt_path}/../../ansible/playbooks/group_vars/F5_systems"
 }
