@@ -102,6 +102,10 @@ DATA="{\"operation\":\"INSTALL\",\"packageFilePath\":\"/var/config/rest/download
 echo -e "\n"$(date) "Install TS Pkg"
 restcurl -X POST "shared/iapp/package-management-tasks" -d $DATA
 
+# Allow config-sync IP to be the management IP (for 1NIC)
+echo "ALLOW CONFIG-SYNC IP TO BE MGMT IP"
+tmsh modify /sys db configsync.allowmanagement value enable
+
 # SET BIG-IP PASSWORD
 echo "SET THE BIG-IP PASSWORD"
 pwd='${BIGIP_PASS}'
